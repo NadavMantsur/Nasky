@@ -1,0 +1,14 @@
+[Thu Jun  8 17:10:26 2023] [0] [test/logger_test.cpp:15] This is a debug message
+
+[Thu Jun  8 17:10:26 2023] [1] [test/logger_test.cpp:16] This is an info message
+
+[Thu Jun  8 17:10:26 2023] [2] [test/logger_test.cpp:17] This is a warning message
+
+[Thu Jun  8 17:10:26 2023] [3] [test/logger_test.cpp:18] This is an error message
+
+[Thu Jun  8 17:10:26 2023] [4] [test/logger_test.cpp:19] This is a critical message
+
+[Thu Jun  8 17:10:26 2023] [0] [test/logger_test.cpp:24] After change filter.
+
+[Thu Jun  8 17:10:26 2023] [0] [test/logger_test.cpp:25] This is a debug message.
+

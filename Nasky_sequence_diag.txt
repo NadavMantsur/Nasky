@@ -1,0 +1,36 @@
+title Nasky
+
+participant user
+participant virtual folder
+participant nbd device
+participant nbd driver
+
+participant reactor
+
+participant factory
+participant thread pool
+participant storage
+
+
+user->virtual folder: add file to write
+virtual folder->nbd device: add file
+
+note left of reactor:select
+nbd device->reactor: Notify()
+reactor-->nbd device:
+reactor->nbd driver: ReqReplay()
+nbd driver->nbd device:read (socket)
+nbd device-->nbd driver:struct data
+nbd driver-->reactor: driver data
+reactor->factory:Create data...("write"..)
+factory-->reactor:*task
+reactor->factory: add task
+factory->thread pool: run task
+note left of reactor:exe (threadpool)
+reactor->storage: write
+storage-->reactor:
+reactor->nbd driver:sendreply(driverdata)
+nbd driver->nbd device:write to the socket
+nbd device-->nbd driver:
+nbd driver-->reactor:
+nbd device-->virtual folder:
